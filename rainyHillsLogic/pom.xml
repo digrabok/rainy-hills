@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>rainyHillsRoot</artifactId>
+        <groupId>com.digrabok.crx.rainyHills</groupId>
+        <version>1.0.0-TRUNC</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <packaging>ejb</packaging>
+    <artifactId>rainyHillsLogic</artifactId>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <artifactId>maven-ejb-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <!-- internal dependencies -->
+        <dependency>
+            <groupId>com.digrabok.crx.rainyHills</groupId>
+            <artifactId>rainyHillsLogicApi</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.digrabok.crx.rainyHills</groupId>
+            <artifactId>rainyHillsPersistentEntities</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.digrabok.crx.rainyHills</groupId>
+            <artifactId>rainyHillsCommons</artifactId>
+        </dependency>
+
+        <!-- external "provided" dependencies -->
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+        </dependency>
+
+        <!-- external "compile" dependencies -->
+        <dependency>
+            <groupId>commons-beanutils</groupId>
+            <artifactId>commons-beanutils</artifactId>
+        </dependency>
+
+        <!-- "test" dependencies -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-all</artifactId>
+        </dependency>
+    </dependencies>
+</project>

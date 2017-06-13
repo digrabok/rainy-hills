@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:body>
+    <ui:composition template="templates/layout.xhtml">
+        <ui:define name="content">
+            <p:panelGrid columns="1" >
+                <h:inputHidden value="#{detailBean.surface}" converter="surfaceConverter" />
+
+                <h3>Surface name</h3>
+                <h:outputText value="#{detailBean.surface.name}" />
+
+                <h3>Surface</h3>
+                <p:inputTextarea id="surfaceConfig" rows="6" cols="33" value="#{detailBean.surface.profile}"
+                                 converter="spaceSeparatedListOfLongsConverter" disabled="true" />
+                <p:commandButton value="Delete" action="#{detailBean.delete()}" />
+            </p:panelGrid>
+        </ui:define>
+    </ui:composition>
+</h:body>
+</html>

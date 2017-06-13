@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>rainyHillsRoot</artifactId>
+        <groupId>com.digrabok.crx.rainyHills</groupId>
+        <version>1.0.0-TRUNC</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <packaging>ear</packaging>
+    <artifactId>rainyHillsApp</artifactId>
+
+    <profiles>
+        <profile>
+            <id>exploded</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-ear-plugin</artifactId>
+                        <configuration>
+                            <unpackTypes>war,ejb</unpackTypes>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-ear-plugin</artifactId>
+                <configuration>
+                    <modules>
+                        <ejbModule>
+                            <groupId>com.digrabok.crx.rainyHills</groupId>
+                            <artifactId>rainyHillsLogic</artifactId>
+                        </ejbModule>
+                        <webModule>
+                            <groupId>com.digrabok.crx.rainyHills</groupId>
+                            <artifactId>rainyHillsWeb</artifactId>
+                            <contextRoot>/rainyHills</contextRoot>
+                        </webModule>
+                    </modules>
+                    <defaultLibBundleDir>/lib</defaultLibBundleDir>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <!-- internal dependencies -->
+        <dependency>
+            <groupId>com.digrabok.crx.rainyHills</groupId>
+            <artifactId>rainyHillsWeb</artifactId>
+            <type>war</type>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.digrabok.crx.rainyHills</groupId>
+            <artifactId>rainyHillsLogicApi</artifactId>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.digrabok.crx.rainyHills</groupId>
+            <artifactId>rainyHillsLogic</artifactId>
+            <type>ejb</type>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.digrabok.crx.rainyHills</groupId>
+            <artifactId>rainyHillsPersistentEntities</artifactId>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.digrabok.crx.rainyHills</groupId>
+            <artifactId>rainyHillsCommons</artifactId>
+            <scope>compile</scope>
+        </dependency>
+
+        <!-- external "compile" dependencies -->
+        <dependency>
+            <groupId>org.primefaces</groupId>
+            <artifactId>primefaces</artifactId>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>commons-beanutils</groupId>
+            <artifactId>commons-beanutils</artifactId>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
+</project>

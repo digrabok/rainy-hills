@@ -1,0 +1,68 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd"
+        logicalFilePath="rainyHillsRoot:trunc">
+    <changeSet id="1" author="digrabok">
+        <sql>create sequence surfaces_id_seq cache 1</sql>
+        <rollback>
+            <dropSequence sequenceName="surfaces_id_seq" />
+        </rollback>
+    </changeSet>
+
+    <changeSet id="2" author="digrabok">
+        <createTable tableName="surfaces">
+            <column name="id" type="integer" />
+            <column name="name" type="varchar">
+                <constraints nullable="false" />
+            </column>
+            <column name="volume" type="integer">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+        <rollback>
+            <dropTable tableName="surfaces" />
+        </rollback>
+    </changeSet>
+
+    <changeSet id="3" author="digrabok">
+        <addPrimaryKey constraintName="pk_surfaces" tableName="surfaces" columnNames="id" />
+        <rollback>
+            <dropPrimaryKey tableName="surfaces" />
+        </rollback>
+    </changeSet>
+
+    <changeSet id="4" author="digrabok">
+        <addUniqueConstraint constraintName="uk_surfaces" tableName="surfaces" columnNames="name" />
+        <rollback>
+            <dropUniqueConstraint tableName="surfaces" constraintName="uk_surfaces" />
+        </rollback>
+    </changeSet>
+
+    <changeSet id="5" author="digrabok">
+        <createTable tableName="surface_points">
+            <column name="surface_id" type="integer">
+                <constraints nullable="false" />
+            </column>
+            <column name="point_order" type="integer">
+                <constraints nullable="false" />
+            </column>
+            <column name="point_height" type="integer">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+        <rollback>
+            <dropTable tableName="surface_points" />
+        </rollback>
+    </changeSet>
+
+    <changeSet id="6" author="digrabok">
+        <addForeignKeyConstraint baseTableName="surface_points" baseColumnNames="surface_id"
+                                 constraintName="fk_surface_points"
+                                 referencedTableName="surfaces"
+                                 referencedColumnNames="id" />
+        <rollback>
+            <dropForeignKeyConstraint baseTableName="surface_points" constraintName="fk_surface_points" />
+        </rollback>
+    </changeSet>
+</databaseChangeLog>

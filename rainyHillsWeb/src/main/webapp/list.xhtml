@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:body>
+    <ui:composition template="templates/layout.xhtml">
+        <ui:define name="content">
+                <h3>Surfaces</h3>
+                <ui:repeat value="#{listBean.surfaces}" var="surface">
+                    <p>
+                        <h:commandLink value="#{surface.name}" action="#{navigationBean.goToDetail(surface)}" />
+                    </p>
+                </ui:repeat>
+        </ui:define>
+    </ui:composition>
+</h:body>
+</html>
