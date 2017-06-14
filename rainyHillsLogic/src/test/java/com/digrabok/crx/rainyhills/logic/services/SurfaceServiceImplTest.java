@@ -15,6 +15,7 @@ import org.junit.runners.JUnit4;
 import org.mockito.Matchers;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.mockito.exceptions.base.MockitoAssertionError;
 
 import javax.enterprise.event.Event;
 import java.util.Arrays;
@@ -55,31 +56,40 @@ public class SurfaceServiceImplTest {
     }
 
     @Test
-    public void shouldCalculateVolumeDuringCreate() {
+    public void shouldCalculateVolumeDuringSurfaceCreation() {
         SurfaceCreateResponse response = service.create(createRequest);
 
-        assertEquals(expectedVolume, response.getPayload().getVolume());
+        assertEquals("Should calculate volume during surface creation",
+                expectedVolume, response.getPayload().getVolume());
     }
 
     @Test
     public void shouldCreateSurface() {
         service.create(createRequest);
 
-        verify(surfaceDao, times(1)).create(surfaceStub);
+        try {
+            verify(surfaceDao, times(1)).create(surfaceStub);
+        } catch (MockitoAssertionError e) {
+            throw new AssertionError("Should create surface", e);
+        }
     }
 
     @Test
     public void shouldFireEventAfterCreate() {
         service.create(createRequest);
 
-        verify(created, times(1)).fire(any());
+        try {
+            verify(created, times(1)).fire(any());
+        } catch (MockitoAssertionError e) {
+            throw new AssertionError("Should fire event after create", e);
+        }
     }
 
     @Test
     public void shouldReturnCreatedSurface() {
         SurfaceCreateResponse response = service.create(createRequest);
 
-        assertEquals(surfaceStub, response.getPayload());
+        assertEquals("Should return created surface", surfaceStub, response.getPayload());
     }
 
     @Test
@@ -88,7 +98,11 @@ public class SurfaceServiceImplTest {
 
         service.delete(deleteRequest);
 
-        verify(surfaceDao, times(1)).delete(surfaceStub);
+        try {
+            verify(surfaceDao, times(1)).delete(surfaceStub);
+        } catch (MockitoAssertionError e) {
+            throw new AssertionError("Should delete surface", e);
+        }
     }
 
     private List<Long> buildSurface(long ... points) {

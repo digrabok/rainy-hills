@@ -26,7 +26,8 @@ public class VolumeMeasurerImplTest {
         List<Long> surface = buildSurface(3, 2, 1, 3, 1);
         long expected = 3;
 
-        assertEquals(expected, measurer.calculate(surface));
+        assertEquals("Should calculate volume when maximum at the beginning of surface",
+                expected, measurer.calculate(surface));
     }
 
     @Test
@@ -34,7 +35,8 @@ public class VolumeMeasurerImplTest {
         List<Long> surface = buildSurface(1, 3, 1, 2, 3);
         long expected = 3;
 
-        assertEquals(expected, measurer.calculate(surface));
+        assertEquals("should calculate volume when maximum at the end of surface",
+                expected, measurer.calculate(surface));
     }
 
     @Test
@@ -42,7 +44,8 @@ public class VolumeMeasurerImplTest {
         List<Long> surface = buildSurface(1, 5, 3, 1, 2, 3, 2, 1, 3, 5, 1);
         long expected = 20;
 
-        assertEquals(expected, measurer.calculate(surface));
+        assertEquals("Should calculate volume when nested hols existed",
+                expected, measurer.calculate(surface));
     }
 
     private List<Long> buildSurface(long ... points) {

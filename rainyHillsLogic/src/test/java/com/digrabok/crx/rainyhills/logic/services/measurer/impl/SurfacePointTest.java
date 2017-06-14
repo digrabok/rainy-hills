@@ -13,7 +13,8 @@ public class SurfacePointTest {
         long expected = 8;
         SurfacePoint currentPoint = new SurfacePoint(8, null);
 
-        assertEquals(expected, currentPoint.getMaxHeightFromBeginning());
+        assertEquals("Should select point height as maxHeightFromBeginning if no prev point provided",
+                expected, currentPoint.getMaxHeightFromBeginning());
     }
 
     @Test
@@ -22,7 +23,8 @@ public class SurfacePointTest {
         SurfacePoint prevPoint = new SurfacePoint(1, null);
         SurfacePoint currentPoint = new SurfacePoint(expected, prevPoint);
 
-        assertEquals(expected, currentPoint.getMaxHeightFromBeginning());
+        assertEquals("Should select point height as maxHeightFromBeginning if max height of prev point is lower",
+                expected, currentPoint.getMaxHeightFromBeginning());
     }
 
     @Test
@@ -31,6 +33,7 @@ public class SurfacePointTest {
         SurfacePoint prevPoint = new SurfacePoint(expected, null);
         SurfacePoint currentPoint = new SurfacePoint(1, prevPoint);
 
-        assertEquals(expected, currentPoint.getMaxHeightFromBeginning());
+        assertEquals("Should select prev point height as maxHeightFromBeginning if max height of prev point is higher",
+                expected, currentPoint.getMaxHeightFromBeginning());
     }
 }
