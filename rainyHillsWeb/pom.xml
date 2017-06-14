@@ -12,6 +12,10 @@
     <packaging>war</packaging>
     <artifactId>rainyHillsWeb</artifactId>
 
+    <properties>
+        <sonar.cpd.exclusions>**/com/digrabok/crx/rainyhills/web/entities/Surface.java</sonar.cpd.exclusions>
+    </properties>
+
     <build>
         <plugins>
             <plugin>

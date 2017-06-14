@@ -22,6 +22,10 @@
         <sonar.host.url>
             http://localhost:9000
         </sonar.host.url>
+        <sonar.cpd.exclusions>
+            src/main/java/com/digrabok/crx/rainyhills/web/entities/Surface.java,
+            src/main/java/com/digrabok/crx/rainyhills/logic/bo/Surface.java
+        </sonar.cpd.exclusions>
     </properties>
 
     <profiles>

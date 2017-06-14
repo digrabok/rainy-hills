@@ -47,12 +47,6 @@
             <artifactId>javaee-api</artifactId>
         </dependency>
 
-        <!-- external "compile" dependencies -->
-        <dependency>
-            <groupId>commons-beanutils</groupId>
-            <artifactId>commons-beanutils</artifactId>
-        </dependency>
-
         <!-- "test" dependencies -->
         <dependency>
             <groupId>junit</groupId>
