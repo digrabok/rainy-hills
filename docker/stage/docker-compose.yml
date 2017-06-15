@@ -1,0 +1,47 @@
+version: "3"
+services:
+
+  payara:
+    build:
+      context: ./containers/payara
+    image: com.digrabok.rainy_hills/payara
+    ports:
+      - "8080:8080"
+      - "4848:4848"
+    depends_on:
+      - postgres_ping
+      - postgres
+      - liquibase
+    container_name: rainy_hills_payara
+
+  liquibase:
+    build:
+      context: ./containers/liquibase
+    image: com.digrabok.rainy_hills/liquibase
+    depends_on:
+      - postgres_ping
+      - postgres
+    container_name: rainy_hills_liquibase
+
+  postgres_ping:
+    build:
+      context: ./containers/ping
+    image: com.digrabok.rainy_hills/ping
+    environment:
+      - DB_PORT=5432
+    depends_on:
+      - postgres
+    container_name: rainy_hills_potgres_ping
+
+  postgres:
+    image: postgres:9.6.3
+    environment:
+      - POSTGRES_PASSWORD=mysecretpassword
+    ports:
+      - '5432:5432'
+    container_name: rainy_hills_postgres
+
+  sonar:
+    image: sonarqube:6.4
+    ports:
+      - "9000:9000"
