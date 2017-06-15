@@ -7,6 +7,10 @@ import com.digrabok.crx.rainyhills.logic.bo.Surface;
 import javax.enterprise.inject.Produces;
 
 public class DtoProducers {
+    private final DtoConverter<Surface, ISurfaceDto> dtoSurfaceConverter = new DtoConverter<>(Surface::new);
+
     @Produces
-    private DtoConverter<Surface, ISurfaceDto> dtoSurfaceConverter = new DtoConverter<>(Surface::new);
+    public DtoConverter<Surface, ISurfaceDto> getDtoSurfaceConverter() {
+        return dtoSurfaceConverter;
+    }
 }

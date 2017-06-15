@@ -18,6 +18,10 @@ public class BoConverter<E, B extends IBusinessObject> {
     }
 
     public B fromEntity(E entity) {
+        if (entity == null) {
+            return null;
+        }
+
         B bo = boFactory.get();
 
         Utils.copyProperties(bo, entity);
@@ -33,6 +37,10 @@ public class BoConverter<E, B extends IBusinessObject> {
     }
 
     public E toEntity(B bo) {
+        if (bo == null) {
+            return null;
+        }
+
         E entity = entityFactory.get();
 
         Utils.copyProperties(entity, bo);

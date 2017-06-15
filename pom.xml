@@ -26,6 +26,10 @@
             src/main/java/com/digrabok/crx/rainyhills/web/entities/Surface.java,
             src/main/java/com/digrabok/crx/rainyhills/logic/bo/Surface.java
         </sonar.cpd.exclusions>
+
+        <version.junit>4.12</version.junit>
+        <version.mockito>1.10.19</version.mockito>
+        <version.powermock>1.6.6</version.powermock>
     </properties>
 
     <profiles>
@@ -269,13 +273,25 @@
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
-                <version>4.12</version>
+                <version>${version.junit}</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>org.mockito</groupId>
                 <artifactId>mockito-all</artifactId>
-                <version>1.10.19</version>
+                <version>${version.mockito}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.powermock</groupId>
+                <artifactId>powermock-module-junit4</artifactId>
+                <version>${version.powermock}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.powermock</groupId>
+                <artifactId>powermock-api-mockito</artifactId>
+                <version>${version.powermock}</version>
                 <scope>test</scope>
             </dependency>
         </dependencies>
