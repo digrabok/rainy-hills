@@ -17,7 +17,7 @@ public class SurfaceAddBean {
     public String submit() {
         surface = surfaceActions.create(surface);
         created.fire(surface);
-        return NavigationEnum.DETAIL.toString();
+        return NavigationEnum.DETAIL.name().toLowerCase();
     }
 
     private ISurfaceActions surfaceActions;

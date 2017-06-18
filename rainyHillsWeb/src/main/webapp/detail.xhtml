@@ -12,9 +12,13 @@
                 <h3>Surface name</h3>
                 <h:outputText value="#{detailBean.surface.name}" />
 
+                <h3>Volume</h3>
+                <h:outputText value="#{detailBean.surface.volume}" />
+
                 <h3>Surface</h3>
                 <p:inputTextarea id="surfaceConfig" rows="6" cols="33" value="#{detailBean.surface.profile}"
                                  converter="spaceSeparatedListOfLongsConverter" disabled="true" />
+
                 <p:commandButton value="Delete" action="#{detailBean.delete()}" />
             </p:panelGrid>
         </ui:define>

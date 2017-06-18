@@ -12,16 +12,16 @@ import javax.inject.Named;
 @RequestScoped
 public class NavigationBean {
     public String goToList() {
-        return NavigationEnum.LIST.name();
+        return NavigationEnum.LIST.name().toLowerCase();
     }
 
     public String goToDetail(Surface surface) {
         selected.fire(surface);
-        return NavigationEnum.DETAIL.name();
+        return NavigationEnum.DETAIL.name().toLowerCase();
     }
 
     public String goToAdd() {
-        return NavigationEnum.ADD.name();
+        return NavigationEnum.ADD.name().toLowerCase();
     }
 
     private Event<Surface> selected;

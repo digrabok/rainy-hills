@@ -25,7 +25,7 @@ public class SurfaceDetailBean {
 
     public String delete() {
         actions.delete(surface);
-        return NavigationEnum.LIST.toString();
+        return NavigationEnum.LIST.name().toLowerCase();
     }
 
     private ISurfaceActions actions;
