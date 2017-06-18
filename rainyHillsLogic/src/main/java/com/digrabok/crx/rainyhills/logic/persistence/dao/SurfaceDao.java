@@ -13,9 +13,6 @@ import java.util.List;
 
 @Stateless
 public class SurfaceDao {
-    @PersistenceContext
-    private EntityManager entityManager;
-
     public Surface create(Surface surface) {
         SurfaceEntity surfaceEntity = surfaceBoConverter.toEntity(surface);
 
@@ -37,6 +34,13 @@ public class SurfaceDao {
     public List<Surface> fetchSurfaceList() {
         TypedQuery<SurfaceEntity> query = entityManager.createQuery("select s from SurfaceEntity s", SurfaceEntity.class);
         return surfaceBoConverter.fromEntity(query.getResultList());
+    }
+
+    @PersistenceContext
+    private EntityManager entityManager;
+
+    void setEntityManager(EntityManager entityManager) {
+        this.entityManager = entityManager;
     }
 
     private BoConverter<SurfaceEntity, Surface> surfaceBoConverter;

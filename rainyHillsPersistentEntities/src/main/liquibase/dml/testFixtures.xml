@@ -1,0 +1,24 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd"
+        logicalFilePath="rainyHillsRoot/dml/tests">
+    <changeSet id="1" author="digrabok">
+        <sql>
+            insert into surfaces(id, name, volume) values (nextval('surfaces_id_seq'), 'Surface #1', 2);
+            insert into surface_points(surface_id, point_order, point_height) values (1, 0, 3);
+            insert into surface_points(surface_id, point_order, point_height) values (1, 1, 2);
+            insert into surface_points(surface_id, point_order, point_height) values (1, 2, 4);
+            insert into surface_points(surface_id, point_order, point_height) values (1, 3, 1);
+            insert into surface_points(surface_id, point_order, point_height) values (1, 4, 2);
+
+            insert into surfaces(id, name, volume) values (nextval('surfaces_id_seq'), 'Surface #2', 8);
+            insert into surface_points(surface_id, point_order, point_height) values (2, 0, 4);
+            insert into surface_points(surface_id, point_order, point_height) values (2, 1, 1);
+            insert into surface_points(surface_id, point_order, point_height) values (2, 2, 1);
+            insert into surface_points(surface_id, point_order, point_height) values (2, 3, 0);
+            insert into surface_points(surface_id, point_order, point_height) values (2, 4, 2);
+            insert into surface_points(surface_id, point_order, point_height) values (2, 5, 3);
+        </sql>
+    </changeSet>
+</databaseChangeLog>

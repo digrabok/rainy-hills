@@ -4,5 +4,5 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd"
         logicalFilePath="rainyHillsRoot">
 
-    <include file="./trunc.xml" relativeToChangelogFile="true" />
+    <include file="./ddl/trunc.xml" relativeToChangelogFile="true" />
 </databaseChangeLog>
