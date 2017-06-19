@@ -1,0 +1,6 @@
+javax.persistence.jdbc.url=jdbc:postgresql://localhost:5432/postgres
+javax.persistence.jdbc.driver=org.postgresql.Driver
+javax.persistence.jdbc.user=postgres
+javax.persistence.jdbc.password=mysecretpassword
+liquibase.ddl.path=/work/projects/rainyHillsRoot/rainyHillsPersistentEntities/src/main/liquibase/master.xml
+liquibase.dml.path=/work/projects/rainyHillsRoot/rainyHillsPersistentEntities/src/main/liquibase/dml/testFixtures.xml
