@@ -43,5 +43,6 @@ services:
 
   sonar:
     image: sonarqube:6.4
+    container_name: rainy_hills_sonar
     ports:
       - "9000:9000"
