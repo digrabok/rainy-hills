@@ -13,13 +13,21 @@ import javax.faces.convert.FacesConverter;
 public class SurfaceConverter implements Converter {
     @Override
     public Surface getAsObject(FacesContext facesContext, UIComponent uiComponent, String s) {
-        long id = Long.parseLong(s);
+        long id;
+        try {
+            id = Long.parseLong(s);
+        } catch (NumberFormatException e) {
+            return null;
+        }
         return actions.fetchSurfaceById(id);
     }
 
     @Override
     public String getAsString(FacesContext facesContext, UIComponent uiComponent, Object o) {
         Surface surface = (Surface) o;
+        if (surface == null || surface.getId() == 0) {
+            return "";
+        }
         return Long.toString(surface.getId());
     }
 

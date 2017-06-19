@@ -11,7 +11,7 @@ import java.util.List;
 
 @Named("listBean")
 @RequestScoped
-public class SurfaceListEnum {
+public class SurfaceListBean {
     private List<Surface> surfaces;
 
     @PostConstruct
@@ -22,9 +22,5 @@ public class SurfaceListEnum {
 
     public List<Surface> getSurfaces() {
         return surfaces;
-    }
-
-    public void setSurfaces(List<Surface> surfaces) {
-        this.surfaces = surfaces;
     }
 }

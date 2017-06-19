@@ -31,7 +31,6 @@
         <version.junit>4.12</version.junit>
         <version.mockito>1.10.19</version.mockito>
         <version.powermock>1.6.6</version.powermock>
-        <version.derby>10.13.1.1</version.derby>
         <version.hibernate>5.2.10.Final</version.hibernate>
         <version.liquibase>3.5.3</version.liquibase>
     </properties>
@@ -330,12 +329,6 @@
                 <groupId>org.powermock</groupId>
                 <artifactId>powermock-api-mockito</artifactId>
                 <version>${version.powermock}</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.derby</groupId>
-                <artifactId>derby</artifactId>
-                <version>${version.derby}</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
