@@ -25,7 +25,7 @@ Could be used another SonarQube instance, see [SonarQube support](#sonarQubeSupp
 3. (Optional, if step 2 was implemented) copy file _rainyHillsLogic/src/test/resources/tests.properties.sample_ as **rainyHillsLogic/src/test/resources/tests.properties**. 
 File properties **should be customised** for you environment.
 4. run maven **install** for **rainyHillsRoot** module:   
-```mvn clean install -P prod,it,sonar, autodeploy```   
+```mvn clean install -P prod,it,sonar,autodeploy```   
    - **it** profile should be provided only if step 2 was implemented.
    - **sonar** profile should be provided only if step 1 was implemented.   
    - **autodeploy** profile should be provided only if stage environment will be used for runtime.   
@@ -33,12 +33,12 @@ File properties **should be customised** for you environment.
    Minimalistic build command will be:
    ```mvn clean install -P prod```   
    It will produce application EAR in **rainyHillsApp/target**.
-5. If sonar was used (step 1) your could check code quality report at [http://localhost:9000]()
+5. If sonar was used (step 1) your could check code quality report at [http://localhost:9000](http://localhost:9000/dashboard?id=com.digrabok.crx.rainyHills%3ArainyHillsRoot)
 6. If postgres was runned at step 2 or sonar was runned at step 1 they should be stopped:    
 ```docker kill $(docker ps --filter 'name=rainy_hills_*' -q)```
 7. If autodeploy was used at step 4 we could start stage environment (details see at [Run stage environment](#stageEnvironment)):   
 ```docker-compose -f docker/stage/docker-compose.yml up --build payara```
-Application will be deployed at [127.0.0.1:8080/rainyHills/]().   
+Application will be deployed at [http://127.0.0.1:8080/rainyHills/](http://127.0.0.1:8080/rainyHills/).   
 Application **EAR** will be located at **rainyHillsApp/target**.
 
 #### Database migrations for external database
