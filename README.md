@@ -3,6 +3,7 @@
 ### Requirements
 - Application tested on Payara application server (Glassfish 4 based, could be started as stage environment - see below). 
 - Application server should be EJB 3.2 compatible.
+- Application server should provide *jdbc pool* with name **jdbc/rainyHills**.
 - Application tested with Postgres 9.6. Postgres could be started with docker:   
 ```docker-compose -f docker/stage/docker-compose.yml up --build postgres```
 
