@@ -5,13 +5,13 @@ import com.digrabok.crx.rainyhills.logic.api.dto.base.IDto;
 public class Dto implements IDto {
     private String value;
 
-    Dto() {}
+    public Dto() {}
 
-    Dto(String value) {
+    public Dto(String value) {
         this.value = value;
     }
 
-    String getValue() {
+    public String getValue() {
         return value;
     }
 

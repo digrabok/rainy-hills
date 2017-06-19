@@ -19,6 +19,9 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <javax.faces.PROJECT_STAGE>Development</javax.faces.PROJECT_STAGE>
+
         <sonar.host.url>
             http://localhost:9000
         </sonar.host.url>
@@ -28,6 +31,14 @@
             src/main/java/com/digrabok/crx/rainyhills/logic/bo/Surface.java
         </sonar.cpd.exclusions>
 
+        <version.javax.servlet-api>3.1.0</version.javax.servlet-api>
+        <version.jsf-api>2.1</version.jsf-api>
+        <version.cdi-api>2.0</version.cdi-api>
+        <version.javax.ejb-api>3.2</version.javax.ejb-api>
+        <version.javaee-api>7.0</version.javaee-api>
+        <version.postgresql>42.1.1</version.postgresql>
+        <version.primefaces>6.1</version.primefaces>
+        <version.commons-beanutils>1.9.3</version.commons-beanutils>
         <version.junit>4.12</version.junit>
         <version.mockito>1.10.19</version.mockito>
         <version.powermock>1.6.6</version.powermock>
@@ -36,12 +47,6 @@
     </properties>
 
     <profiles>
-        <profile>
-            <id>dev</id>
-            <properties>
-                <javax.faces.PROJECT_STAGE>Development</javax.faces.PROJECT_STAGE>
-            </properties>
-        </profile>
         <profile>
             <id>prod</id>
             <activation>
@@ -61,6 +66,9 @@
                     </plugin>
                 </plugins>
             </build>
+        </profile>
+        <profile>
+            <id>autodeploy</id>
         </profile>
         <profile>
             <id>exploded</id>
@@ -258,37 +266,37 @@
             <dependency>
                 <groupId>javax.servlet</groupId>
                 <artifactId>javax.servlet-api</artifactId>
-                <version>3.1.0</version>
+                <version>${version.javax.servlet-api}</version>
                 <scope>provided</scope>
             </dependency>
             <dependency>
                 <groupId>javax.faces</groupId>
                 <artifactId>jsf-api</artifactId>
-                <version>2.1</version>
+                <version>${version.jsf-api}</version>
                 <scope>provided</scope>
             </dependency>
             <dependency>
                 <groupId>javax.enterprise</groupId>
                 <artifactId>cdi-api</artifactId>
-                <version>2.0</version>
+                <version>${version.cdi-api}</version>
                 <scope>provided</scope>
             </dependency>
             <dependency>
-                    <groupId>javax.ejb</groupId>
-                    <artifactId>javax.ejb-api</artifactId>
-                <version>3.2</version>
+                <groupId>javax.ejb</groupId>
+                <artifactId>javax.ejb-api</artifactId>
+                <version>${version.javax.ejb-api}</version>
                 <scope>provided</scope>
             </dependency>
             <dependency>
                 <groupId>javax</groupId>
                 <artifactId>javaee-api</artifactId>
-                <version>7.0</version>
+                <version>${version.javaee-api}</version>
                 <scope>provided</scope>
             </dependency>
             <dependency>
                 <groupId>org.postgresql</groupId>
                 <artifactId>postgresql</artifactId>
-                <version>42.1.1</version>
+                <version>${version.postgresql}</version>
                 <scope>provided</scope>
             </dependency>
 
@@ -296,13 +304,13 @@
             <dependency>
                 <groupId>org.primefaces</groupId>
                 <artifactId>primefaces</artifactId>
-                <version>6.1</version>
+                <version>${version.primefaces}</version>
                 <scope>provided</scope>
             </dependency>
             <dependency>
                 <groupId>commons-beanutils</groupId>
                 <artifactId>commons-beanutils</artifactId>
-                <version>1.9.3</version>
+                <version>${version.commons-beanutils}</version>
                 <scope>provided</scope>
             </dependency>
 

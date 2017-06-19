@@ -7,7 +7,7 @@ RUN mkdir /opt/liquibase \
     && tar zxvf liquibase-3.5.3-bin.tar.gz \
     && rm liquibase-3.5.3-bin.tar.gz
 
-COPY autodeploy/* /tmp/migrations/
+COPY autodeploy/ /tmp/migrations/
 
 CMD /opt/liquibase/liquibase --driver=org.postgresql.Driver \
     --classpath=/opt/liquibase/postgresql-42.1.1.jar \

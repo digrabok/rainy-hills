@@ -24,11 +24,12 @@ parameters provided for docker container from **docker/dev/postgres**).
 6. Application will be acceptable on the context root **/rainyHills**
 
 #### SonarQube support <a name="sonarQubeSupport"></a>
-
+SonarQube could be started with docker container:   
+```docker-compose -f docker/stage/docker-compose.yml up --build sonar```
 Build with SonarQube support:  
 ```mvn clean install -P prod,sonar```
 
-Run stage environment:
+#### Run stage environment:
 ```
 mvn clean install -P prod,autodeploy
 docker-compose -f docker/stage/docker-compose.yml up --build payara
