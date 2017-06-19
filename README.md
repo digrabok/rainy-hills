@@ -1,13 +1,18 @@
 ## Rainy Hills
 
 ### Requirements
-- Application tested on Payara application server (Glassfish 4 based). 
+- Application tested on Payara application server (Glassfish 4 based, could be started as stage environment - see below). 
 - Application server should be EJB 3.2 compatible.
+- Application tested with Postgres 9.6. Postgres could be started with docker:   
+```docker-compose -f docker/stage/docker-compose.yml up --build postgres```
 
 ### Usage
 #### Application build
 Maven build supported several profiles:
-- **prod** - build will be prepared for production environment. 
+- **prod** - build will be prepared for production environment (by default for development environment). 
+- **autodeploy** - prepare artifacts for start of stage environment.
+- **it** - enable integration tests. For usage need create copy of file _rainyHillsRoot/rainyHillsLogic/src/test/resources/tests.properties.sample_ 
+ as **tests.properties** with actual configuration properties for access to test database.
 - **exploded** - result of build will be _exploded_ EAR with exploded _WAR_ & _EJB_ inside.
 - **sonar** - will force inspection of code quality by SonarQube (see [SonarQube support](#sonarQubeSupport) below).  
 
@@ -25,7 +30,8 @@ parameters provided for docker container from **docker/dev/postgres**).
 
 #### SonarQube support <a name="sonarQubeSupport"></a>
 SonarQube could be started with docker container:   
-```docker-compose -f docker/stage/docker-compose.yml up --build sonar```
+```docker-compose -f docker/stage/docker-compose.yml up --build sonar```   
+**sonar** profile require actual url in property _sonar.host.url_ in _rainyHillsRoot_ module.
 Build with SonarQube support:  
 ```mvn clean install -P prod,sonar```
 
